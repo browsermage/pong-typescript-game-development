@@ -1,6 +1,6 @@
 import Component from "../core/Component"
 import Doodad from "../core/Doodad"
-import { context } from "../main"
+// import { context } from "../main"
 
 export default class Sprite extends Component {
 
@@ -12,7 +12,7 @@ export default class Sprite extends Component {
     }
 
     /** TEMP Method, remove when I have proper scene image loading */
-    TEMPLOADIMAGE(url: string): void {
+    async TEMPLOADIMAGE(url: string) {
         const image = new Image()
         image.src = url         
 
@@ -30,24 +30,24 @@ export default class Sprite extends Component {
     /** Draws the defined texture on the canvas at the attached Doodad */
     draw() {
         
-        if (this.texture) {
+        // if (this.texture) {
 
-            context.save()
+        //     context.save()
 
-            context.translate(
-                this.doodad.position.x, 
-                this.doodad.position.y
-                )
+        //     context.translate(
+        //         this.doodad.position.x, 
+        //         this.doodad.position.y
+        //         )
 
-            context.drawImage(
-                this.texture, 
-                0,
-                0,
-                this.texture.width,
-                this.texture.height
-                )
+        //     context.drawImage(
+        //         this.texture, 
+        //         0,
+        //         0,
+        //         this.texture.width,
+        //         this.texture.height
+        //         )
                 
-            context.restore()
-        }
+        //     context.restore()
+        // }
     }
 }
