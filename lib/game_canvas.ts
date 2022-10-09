@@ -75,8 +75,6 @@ export abstract class GameCanvas extends HTMLCanvasElement {
         
         // if the current scene has implemented the render interface, run it
         if (implementsRender(this.sceneManager.current)) this.sceneManager.current.render()
-        
-        
 
         // reset and/or run destroy / remove / reset etc. on the things marked for destruction
         this.input.resetKeyPressedEvents()

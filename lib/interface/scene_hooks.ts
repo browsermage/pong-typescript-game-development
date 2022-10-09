@@ -46,27 +46,37 @@ export interface OnRender {
 /**
  * User Defined Type Guard for Update
  */
- export const implementsUpdate = (arg: any): arg is OnUpdate => {
+export const implementsUpdate = (arg: any): arg is OnUpdate => {
     return Reflect.has(arg, 'update')
 } 
 
 /**
  * User Defined Type Guard for Exit
  */
- export const implementsExit = (arg: any): arg is OnExit => {
+export const implementsExit = (arg: any): arg is OnExit => {
     return Reflect.has(arg, 'exit')
 } 
 
 /**
  * User Defined Type Guard for Enter
  */
- export const implementsEnter = (arg: any): arg is OnEnter => {
+export const implementsEnter = (arg: any): arg is OnEnter => {
     return Reflect.has(arg, 'enter')
 } 
 
 /**
  * User Defined Type Guard for Render
  */
- export const implementsRender = (arg: any): arg is OnRender => {
+export const implementsRender = (arg: any): arg is OnRender => {
     return Reflect.has(arg, 'render')
 } 
+
+// export function Scene(options: { name: string }) {
+//     return (target: Function) => {
+//         target.prototype.name = options.name
+//     }
+// }
+
+// export interface Scene {
+//     name: string
+// }
