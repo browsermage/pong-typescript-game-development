@@ -1,7 +1,6 @@
 import { Scene } from "../../lib/core/scene"
-import { OnUpdate, OnRender } from "../../lib/interface/scene_hooks"
 
-export class PlayScene extends Scene implements OnUpdate, OnRender {
+export class PlayScene extends Scene {
 
     name = "play"
     counter = 0
@@ -14,5 +13,9 @@ export class PlayScene extends Scene implements OnUpdate, OnRender {
     render(): void {
     //   console.log("I am run")
     }
+
+    enter() {}
+
+    exit() {}
 
 }

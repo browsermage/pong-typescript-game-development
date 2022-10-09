@@ -6,7 +6,7 @@ export class SceneManager {
     scenes:  { [key: string]: new () => Scene } = {}
     current = {}
 
-    addScene(name: string, scene:  new () =>  Scene) {
+    addScene(name: string, scene: Scene) {
         this.scenes[name] = scene
     }
 
