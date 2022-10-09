@@ -1,16 +1,13 @@
-import { SceneManager } from "./lib/core/SceneManager"
-import { GameCanvas } from "./lib/game-canvas"
-import { Scene } from "./lib/core/Scene"
+import { GameCanvas } from "./lib/game_canvas"
+import { PlayScene } from "./assets/scenes/play.scene"
 
 export class PongGame extends GameCanvas {
 
     init() {
         
-        const sceneManager  = new SceneManager({
-            "title": Scene
-        })
+        this.sceneManager.addScene("play", PlayScene)
 
-        sceneManager.changeScene("title")
+        this.sceneManager.changeScene("play")
         
         // const background = new Doodad()
 
@@ -24,7 +21,7 @@ export class PongGame extends GameCanvas {
         // this.context.drawImage(sprite, 0, 0)
     }
 
-    draw() {
+    render() {
 
         const red = 240
         const green = 200

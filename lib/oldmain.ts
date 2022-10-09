@@ -1,5 +1,5 @@
-import Time from "./core/Time"
-import Input from "./core/Input"
+import Time from "./core/time"
+import Input from "./core/input"
 
 export const config = {
     resolution: {

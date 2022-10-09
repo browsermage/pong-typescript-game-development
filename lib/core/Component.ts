@@ -1,4 +1,4 @@
-import Doodad from "./Doodad"
+import Doodad from "./doodad"
 
 export default abstract class Component
 {

@@ -1,6 +1,7 @@
-import Input from "./core/Input"
-import { SceneManager } from "./core/SceneManager"
-import Time from "./core/Time"
+import Input from "./core/input"
+import { SceneManager } from "./core/scene_manager"
+import Time from "./core/time"
+import { implementsRender, implementsUpdate } from "./interface/scene_hooks"
 
 export abstract class GameCanvas extends HTMLCanvasElement {
 
@@ -49,8 +50,8 @@ export abstract class GameCanvas extends HTMLCanvasElement {
 
     // basic game loop that uses deltatime to help us make the game frame-independent
     #loop (unscaledTime = 0) {
-        // compute time elapsed since last frame a.k.a delta time
 
+        // compute time elapsed since last frame a.k.a delta time
         this.time.deltaTime = Number(((unscaledTime - this.time.lastTime) / 1000))
 
         // deltaTime value is capped to maximumDeltaTime
@@ -64,12 +65,18 @@ export abstract class GameCanvas extends HTMLCanvasElement {
 
         // run updates 
         this.input.updateAxis()
-        this.sceneManager.current.update()
         this.update()
-        
+
+        // if the current scene has implemented the update interface, run it
+        if (implementsUpdate(this.sceneManager.current)) this.sceneManager.current.update()
+       
         // run renders
-        this.sceneManager.current.draw()
-        this.draw()
+        this.render()
+        
+        // if the current scene has implemented the render interface, run it
+        if (implementsRender(this.sceneManager.current)) this.sceneManager.current.render()
+        
+        
 
         // reset and/or run destroy / remove / reset etc. on the things marked for destruction
         this.input.resetKeyPressedEvents()
@@ -82,6 +89,6 @@ export abstract class GameCanvas extends HTMLCanvasElement {
 
     abstract update(): void
 
-    abstract draw(): void
+    abstract render(): void
 
 }

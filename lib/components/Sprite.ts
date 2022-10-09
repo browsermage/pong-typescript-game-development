@@ -1,5 +1,5 @@
-import Component from "../core/Component"
-import Doodad from "../core/Doodad"
+import Component from "../core/component"
+import Doodad from "../core/doodad"
 // import { context } from "../main"
 
 export default class Sprite extends Component {
@@ -27,8 +27,8 @@ export default class Sprite extends Component {
         this.texture = await createImageBitmap(image)
     }
 
-    /** Draws the defined texture on the canvas at the attached Doodad */
-    draw() {
+    /** Renders the defined texture on the canvas at the attached Doodad */
+    render() {
         
         // if (this.texture) {
 

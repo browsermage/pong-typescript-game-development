@@ -1,6 +1,7 @@
-export class Scene {
-    enter(_params: any) {}
-    exit() {}
-    draw() {}
+export abstract class Scene {
+    // name:string
+    // enter(_params: any) {}
+    // exit() {}
+    render() {}
     update() {}
 }

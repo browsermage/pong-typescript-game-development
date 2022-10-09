@@ -9,11 +9,12 @@
       "resolveJsonModule": true,
       "isolatedModules": true,
       "esModuleInterop": true,
+      "experimentalDecorators": true,
       "noEmit": true,
       "noUnusedLocals": true,
       "noUnusedParameters": true,
       "noImplicitReturns": true,
       "skipLibCheck": true
     },
-    "include": ["lib"]
+    "include": ["lib", "pong.ts", "assets"]
   }
