@@ -1,7 +1,10 @@
-import Input from "./core/input"
-import { SceneManager } from "./core/scene_manager"
-import Time from "./core/time"
 import { implementsRender, implementsUpdate } from "./interface/scene_hooks"
+import { SceneManager } from "./core/scene_manager"
+import services from "./core/service_locator"
+import Input from "./core/input"
+import Time from "./core/time"
+import { CanvasRenderer } from "./core/canvas_renderer"
+
 
 export abstract class GameCanvas extends HTMLCanvasElement {
 
@@ -12,21 +15,18 @@ export abstract class GameCanvas extends HTMLCanvasElement {
         }
     }
 
+    time: Time
+
+    input: Input
+
+    sceneManager: SceneManager
+
     context: CanvasRenderingContext2D
-    
-    // sets up a new instance of the Time class
-    time = new Time()
-
-    // sets up a new instance of the Input class
-    input = new Input()
-
-    // sets up a new instance of the SceneManager class
-    sceneManager = new SceneManager()
 
     constructor() {
         // must always call super() first
         super() 
-
+        
         // set the canvas to the configuration 
         this.height = this.config.resolution.height
         this.width = this.config.resolution.width
@@ -40,7 +40,25 @@ export abstract class GameCanvas extends HTMLCanvasElement {
         }) 
         
         // crispy pixels for pixel art
-        this.context.imageSmoothingEnabled = false 
+        this.context.imageSmoothingEnabled = false   
+
+        // set up the data for the service locator
+        services.set("Time", new Time())
+        services.set("Input", new Input())
+        services.set("SceneManager", new SceneManager())
+        services.set("CanvasRenderer", new CanvasRenderer(this))
+
+        services.set("Canvas", this)
+        services.set("Context", this.context)
+
+        // gets the instance of the Time class
+        this.time = services.get('Time')
+
+        // gets the instance of the Input class
+        this.input = services.get('Input')
+
+        // gets the instance of the SceneManager class
+        this.sceneManager = services.get('SceneManager')
 
         this.init()
 

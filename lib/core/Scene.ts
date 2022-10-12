@@ -1,4 +1,7 @@
+// import { Game } from "../game"
+
 export abstract class Scene {
+
     /**
      *  the name of the Scene
      */

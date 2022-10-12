@@ -1,4 +1,7 @@
+import { cls, fillRect } from "../../lib/core/draw"
 import { Scene } from "../../lib/core/scene"
+
+
 
 export class PlayScene extends Scene {
 
@@ -6,10 +9,15 @@ export class PlayScene extends Scene {
 
     update(): void {}
 
-    render(): void {}
+    render(): void {
+        cls()
+        fillRect(10,10,50,50, "tomato")
+    }
 
-    enter() {}
+    enter(): void {
+        
+    }
 
-    exit() {}
+    exit(): void {}
 
 }
