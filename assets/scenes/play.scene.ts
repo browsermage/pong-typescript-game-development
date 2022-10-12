@@ -3,16 +3,10 @@ import { Scene } from "../../lib/core/scene"
 export class PlayScene extends Scene {
 
     name = "play"
-    counter = 0
 
-    update(): void {
-        // this.counter++
-        // console.log(this)
-    }
+    update(): void {}
 
-    render(): void {
-    //   console.log("I am run")
-    }
+    render(): void {}
 
     enter() {}
 

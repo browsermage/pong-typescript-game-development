@@ -7,7 +7,7 @@ export class PongGame extends GameCanvas {
         
         this.sceneManager.addScene("play", PlayScene)
 
-        this.sceneManager.changeScene("play")
+        // this.sceneManager.changeScene("play")
         
         // const background = new Doodad()
 
