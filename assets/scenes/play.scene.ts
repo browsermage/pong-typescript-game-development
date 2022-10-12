@@ -11,7 +11,7 @@ export class PlayScene extends Scene {
 
     render(): void {
         cls()
-        fillRect(10,10,50,50, "tomato")
+        fillRect(10,10,50,50, "green")
     }
 
     enter(): void {

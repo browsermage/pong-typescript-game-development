@@ -1,4 +1,6 @@
-
+/**
+ * Provides properties and methods for manipulating the layout and presentation of the canvas element.
+ */
 export class CanvasRenderer {
 
     config = {
@@ -18,9 +20,6 @@ export class CanvasRenderer {
         // set the canvas to the configuration 
         this.canvas.height = this.config.resolution.height
         this.canvas.width = this.config.resolution.width
-
-        // adds the canvas to the DOM
-        document.body.appendChild(this.canvas)  
 
         // getting the context from the canvas
         // https://developer.chrome.com/blog/desynchronized/

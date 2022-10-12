@@ -48,9 +48,6 @@ export abstract class GameCanvas extends HTMLCanvasElement {
         services.set("SceneManager", new SceneManager())
         services.set("CanvasRenderer", new CanvasRenderer(this))
 
-        services.set("Canvas", this)
-        services.set("Context", this.context)
-
         // gets the instance of the Time class
         this.time = services.get('Time')
 
@@ -60,8 +57,10 @@ export abstract class GameCanvas extends HTMLCanvasElement {
         // gets the instance of the SceneManager class
         this.sceneManager = services.get('SceneManager')
 
+        // let's initialize custom code
         this.init()
 
+        // let's start the engines *VROOOOM*
         this.#loop()
    
     }

@@ -1,14 +1,18 @@
+import { CanvasRenderer } from "../core/canvas_renderer"
+import service_locator from "../core/service_locator"
 import Component from "../core/component"
 import Doodad from "../core/doodad"
-// import { context } from "../main"
+
 
 export default class Sprite extends Component {
 
     /** Texture object to draw */
-    texture: ImageBitmap
+    texture: ImageBitmap | undefined
+    canvasRenderer: CanvasRenderer
 
     constructor(doodad: Doodad) {
         super(doodad) 
+        this.canvasRenderer = service_locator.get<CanvasRenderer>("CanvasRenderer")
     }
 
     /** TEMP Method, remove when I have proper scene image loading */
