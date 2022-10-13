@@ -10,10 +10,9 @@ export class Paddle extends Doodad {
     start() { }
 
     render() {
-        fillRect(this.position.x, this.position.y, 50, 50, "tomato")
+        fillRect(this.position.x, this.position.y, 4, 12, "tomato")
     }
 
     update() {
-        console.log("I do stuff")
     }
 }

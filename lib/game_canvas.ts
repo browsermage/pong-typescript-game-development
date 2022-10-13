@@ -1,25 +1,19 @@
 import { implementsRender, implementsUpdate } from "./interface/scene_hooks"
+import { CanvasRenderer } from "./core/canvas_renderer"
 import { SceneManager } from "./core/scene_manager"
 import services from "./core/service_locator"
 import Input from "./core/input"
 import Time from "./core/time"
-import { CanvasRenderer } from "./core/canvas_renderer"
-
 
 export abstract class GameCanvas extends HTMLCanvasElement {
-
-    config = {
-        resolution: {
-            width: 640,
-            height: 360
-        }
-    }
 
     time: Time
 
     input: Input
 
     sceneManager: SceneManager
+
+    canvasRenderer: CanvasRenderer
 
     constructor() {
         super()
@@ -37,10 +31,13 @@ export abstract class GameCanvas extends HTMLCanvasElement {
 
         // gets the instance of the SceneManager class
         this.sceneManager = services.get('SceneManager')
+
+        this.canvasRenderer = services.get("CanvasRenderer")
     }
 
     // basic game loop that uses deltatime to help us make the game frame-independent
     #loop (unscaledTime = 0) {
+        this.canvasRenderer.reszie()
 
         // compute time elapsed since last frame a.k.a delta time
         this.time.deltaTime = Number(((unscaledTime - this.time.lastTime) / 1000))
