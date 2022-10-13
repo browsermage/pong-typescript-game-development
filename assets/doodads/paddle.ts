@@ -10,8 +10,6 @@ export class Paddle extends Doodad {
     start() { }
 
     render() {
-
-        // försöker få render att fungeram men den är undefined
         fillRect(this.position.x, this.position.y, 50, 50, "tomato")
     }
 

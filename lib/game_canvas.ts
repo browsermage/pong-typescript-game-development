@@ -21,28 +21,9 @@ export abstract class GameCanvas extends HTMLCanvasElement {
 
     sceneManager: SceneManager
 
-    context: CanvasRenderingContext2D
-
     constructor() {
-        // must always call super() first
-        super() 
-        
-        // set the canvas to the configuration 
-        this.height = this.config.resolution.height
-        this.width = this.config.resolution.width
+        super()
 
-        // getting the context from the canvas
-        // https://developer.chrome.com/blog/desynchronized/
-        this.context = <CanvasRenderingContext2D>this.getContext("2d", { 
-            preserveDrawingBuffer: true,
-            desynchronized: true, 
-            alpha: true 
-        }) 
-        
-        // crispy pixels for pixel art
-        this.context.imageSmoothingEnabled = false   
-
-        // set up the data for the service locator
         services.set("Time", new Time())
         services.set("Input", new Input())
         services.set("SceneManager", new SceneManager())
@@ -56,13 +37,6 @@ export abstract class GameCanvas extends HTMLCanvasElement {
 
         // gets the instance of the SceneManager class
         this.sceneManager = services.get('SceneManager')
-
-        // let's initialize custom code
-        this.init()
-
-        // let's start the engines *VROOOOM*
-        this.#loop()
-   
     }
 
     // basic game loop that uses deltatime to help us make the game frame-independent
@@ -86,21 +60,30 @@ export abstract class GameCanvas extends HTMLCanvasElement {
 
         // if the current scene has implemented the update interface, run it
         if (implementsUpdate(this.sceneManager.current)) this.sceneManager.current.update()
-       
+     
         // run renders
         this.render()
         
         // if the current scene has implemented the render interface, run it
+
         if (implementsRender(this.sceneManager.current)) this.sceneManager.current.render()
 
         // reset and/or run destroy / remove / reset etc. on the things marked for destruction
         this.input.resetKeyPressedEvents()
-
+       
         // notice the use of an arrow function here so that "this" does not get lost upon the next frame
         window.requestAnimationFrame(() => this.#loop())
     }
 
-    abstract init(): void
+    init() {
+        // let's initialize the game when all the constructors have run
+        this.start()
+
+        // let's start the engines *VROOOOM*
+        this.#loop()
+    }
+
+    abstract start(): void
 
     abstract update(): void
 
