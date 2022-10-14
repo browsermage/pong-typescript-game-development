@@ -3,19 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pong javascript Demo | Colors of code</title>
+    <title>Pong Typescript Demo | Colors of code</title>
     <script type="module" src="pong.ts"></script>
 </head>
 <body>
-    
-    <img src="assets/sprites/robot.sprite.png">
-    <canvas is="pong-game"></canvas>
+    <link rel="stylesheet" href="./assets/robot/robot.styles.css">
+    <style>
+        @font-face {
+            font-family: "Pong Font";
+            src: url("./assets/fonts/retro_font.ttf") format("truetype");
+        }
 
+        body {
+            font-family: "Pong Font";
+            background: #1071bc;
+            background-image: url(./assets/images/grid-pattern.png);
+            display: flex;
+            align-items: center;    
+            color: white;
+            flex-direction: column;
+            
+        }
+        a {
+            color: white;
+        }
+        img {
+            image-rendering: pixelated;
+        }
+        canvas {
+            position: absolute;
+            top: 142px;
+            left: 136px;
+        }
+        .game-demo {
+            position: relative;
+        }
+        .footer {
+            opacity: 0.7;
+            text-align: center;
+        }
+        .binary {
+            font-size: 0.6rem;
+        }
+        .binary::selection {
+            color: black;
+            background: white;
+        }
+    </style>
+
+    <div class="game-demo">
+        <!-- Animate sprite -->
+        <div class="computer">
+            <audio data-audio="game-start">
+                <source src="./assets/sounds/game-start.mp3" type="audio/mp3" />
+            </audio>
+            <!-- <audio data-audio="paddle-hit" src="./assets/sounds/paddle_hit.wav"></audio>
+            <audio data-audio="wall-hit" src="./assets/sounds/wall_hit.wav"></audio>
+            <audio data-audio="wind-sound" src="./assets/sounds/win_sound.wav"></audio> -->
+            <img class="sprite" src="./assets/robot/robot.sprite.png" alt="Computer spritesheet" >
+        </div>
+        <!-- Pong game -->
+        <canvas is="pong-game"></canvas>
+    </div>
+
+    <p>
+        Press Space to start (⚠️ will play sound). Use W and S to move the paddle
+    </p>
     <footer class="footer">
-        <p>MIT License Copyright &copy; 2022 Colors of code. 
-            <a href="https://github.com/colorsofcode/pong-javascript-game" target="_blank" title="Pong javascript game github repository">Github</a> 
+        <p>MIT License Copyright (C) 2022 Colors of code. 
+            <a href="https://github.com/colorsofcode/pong-typescript-game-development" target="_blank" title="Pong Typescript Github repository">Github</a> 
             . 
             <a href="https://twitter.com/colorsofcode" target="_blank" title="Twitter account of Colors of code">Twitter</a>
+        </p>
+        <p>Pixelart is Copyright (C) 2022 Woostar. 
+            
+            <a href="https://twitter.com/WoostarsPixels" target="_blank" title="Twitter account of Woostar">Twitter</a>
+        </p>
+        <p class="binary">
+            01110010 01100101 01101101 01100101 01101101 01100010 01100101 01110010 00100000 01110100 01101111 <br>
+            00100000 01101100 01101111 01110110 01100101 00001101 00001010 00001101 00001010 00001101 00001010
         </p>
     </footer>
 

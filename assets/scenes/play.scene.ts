@@ -1,3 +1,4 @@
+import { clsColor, printf } from "../../lib/core/draw"
 import { Scene } from "../../lib/core/scene"
 import { Paddle } from "../doodads/paddle"
 
@@ -5,23 +6,29 @@ export class PlayScene extends Scene {
 
     name = "play"
 
-    player1 = new Paddle(10, 50)
-    player2 = new Paddle(150, 50)
+    player = new Paddle(2, 5)
+    computer = new Paddle(42, 16)
+
+    enter(): void {
+        document.querySelector(".computer")?.setAttribute("data-animation-state", "idle")
+        document.querySelector<HTMLAudioElement>("[data-audio='game-start']")?.play()
+    }
 
     update(): void {
-        this.player1.update()
-        this.player2.update()
+        this.player.update()
+        this.computer.update()
     }
 
     render(): void {
-        this.player1.render()
-        this.player2.render()
+        printf("0",17,12)
+        printf("0",30,12)
+        // clsColor(100,0,0,1)
+        this.player.render()
+        this.computer.render()
     }
 
-    enter(): void {
-        this.player1.position.set(4,8)
+    exit(): void {
+        document.querySelector(".computer")?.removeAttribute("data-animation-state")
     }
-
-    exit(): void {}
 
 }

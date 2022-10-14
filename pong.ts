@@ -1,10 +1,8 @@
-import { Computer } from "./assets/doodads/computer"
 import { PlayScene } from "./assets/scenes/play.scene"
+import { StartScene } from "./assets/scenes/start.scene"
 import { GameCanvas } from "./lib/game_canvas"
 
 export class PongGame extends GameCanvas {
-
-    computer = new Computer(0,0)
 
     constructor() {
         super()
@@ -13,13 +11,11 @@ export class PongGame extends GameCanvas {
 
     start() {  
         this.sceneManager.addScene("play", PlayScene)
-        this.sceneManager.changeScene("play")  
+        this.sceneManager.addScene("start", StartScene)
+        this.sceneManager.changeScene("start")  
     }
 
-    render() {
-        this.computer.sprite.render()
-        // clsColor(39,39,39,1)
-    }
+    render() {}
 
     update() {}
 }

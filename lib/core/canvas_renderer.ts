@@ -5,8 +5,8 @@ export class CanvasRenderer {
 
     config = {
         resolution: {
-            width: 240,
-            height: 426
+            width: 46,
+            height: 26
         }
     }
 
@@ -19,16 +19,8 @@ export class CanvasRenderer {
 
         this.canvas.style.imageRendering = "pixelated"
         
-        // const scale = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas.
-
-        this.canvas.style.width = `${this.config.resolution.height}px`
-        this.canvas.style.height = `${this.config.resolution.width}px`
-
-        // // set the canvas to the configuration 
-        // this.canvas.height = Math.floor(this.config.resolution.height * scale)
-        // this.canvas.width = Math.floor(this.config.resolution.width * scale)
-
-
+        this.canvas.style.width = `${this.config.resolution.width}px`
+        this.canvas.style.height = `${this.config.resolution.height}px`
         
         // getting the context from the canvas
         // https://developer.chrome.com/blog/desynchronized/

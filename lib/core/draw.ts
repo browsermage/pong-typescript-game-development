@@ -62,3 +62,17 @@ export function fillRect(x:number, y:number, width:number , height:number, color
 
   canvasRenderer.context.clearRect(0, 0, canvasRenderer.canvas.width, canvasRenderer.canvas.height)
 }
+
+/**
+ * Renderes a text string using the font and text layout configuration as defined by the font, textAlign, textBaseline, and direction properties.
+ * @param text A string specifying the text string to render into the context.
+ * @param x The x-axis coordinate of the point at which to begin drawing the text, in pixels.
+ * @param y The y-axis coordinate of the baseline on which to begin drawing the text, in pixels.
+ */
+ export function printf(text: string, x: number, y: number) {
+    const canvasRenderer = service_locator.get<CanvasRenderer>("CanvasRenderer")
+    canvasRenderer.context.fillStyle = "white"
+    canvasRenderer.context.textAlign = "center"
+    canvasRenderer.context.font = `normal 12px Pong Font`
+    canvasRenderer.context.fillText(text, x, y)
+}

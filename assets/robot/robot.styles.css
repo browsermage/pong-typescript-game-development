@@ -1,0 +1,70 @@
+/**
+    For this CSS animation to work, it relies on that 
+    the sprite sheet is one animation per row
+    and all have the same amount of frames
+*/
+
+.computer {
+    --sprite-size: 320px; /* Add the size of each frame here */
+    --sprite-frames: 8; /* How many frames per animation*/
+    --sprite-duration: 100ms; /* How long each frame lasts */
+
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    width: var(--sprite-size);
+    height: var(--sprite-size);
+}
+.computer .sprite {
+    position: absolute;
+    image-rendering: pixelated; /* for those crisp web pixels */
+
+    /** 
+        This would translate it to something in the lines with 
+        animation: spriteAnimation 400ms infinite steps(4) forwards;
+    */
+    animation: spriteAnimation calc(var(--sprite-frames) * var(--sprite-duration)) infinite steps(var(--sprite-frames)) forwards;
+}
+
+/**
+    Adding an attribute is what determines what gets animated. 
+    You should add all your animations here with the 
+    correct row number.
+
+    In this case I have added 2 animations 
+    - "idle" on the first row
+    - "running" on the second row
+*/
+.computer[data-animation-state="idle"] .sprite {
+    --current-sprite-animation: 0;
+}
+
+/**
+    This is the main animation, it multiples the current 
+    animation row with the sprite size to determine 
+    what area to show
+
+    This would translate it to something in the lines with.
+
+    @keyframes spriteAnimation {
+        from {
+            object-position: 0 -96px;
+        }
+
+        to {
+            object-position: -384px -96px;
+        }
+    }
+
+    PS. the multipling * -1 at the end is to turn the 
+    positive number in to a negative one
+*/
+@keyframes spriteAnimation {
+    from {
+        object-position: 0 calc((var(--current-sprite-animation) * var(--sprite-size)) * -1);
+    }
+
+    to {
+        object-position: calc((var(--sprite-frames) * var(--sprite-size)) * -1) calc((var(--current-sprite-animation) * var(--sprite-size)) * -1);
+    }
+}
