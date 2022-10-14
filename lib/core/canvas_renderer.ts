@@ -5,8 +5,8 @@ export class CanvasRenderer {
 
     config = {
         resolution: {
-            width: 160,
-            height: 160
+            width: 240,
+            height: 426
         }
     }
 

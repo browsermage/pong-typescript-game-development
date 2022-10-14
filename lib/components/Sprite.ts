@@ -41,12 +41,22 @@ export default class Sprite extends Component {
 
             this.canvasRenderer.context.translate(this.doodad.position.x, this.doodad.position.y)
 
+            // this.canvasRenderer.context.drawImage(
+            //     this.texture,
+            //     0,
+            //     0,
+            //     160,160)
+            const spriteSize = 160
             this.canvasRenderer.context.drawImage(
-                this.texture,
-                0,
-                0,
-                160,160)
-
+                this.texture, 
+                0, 
+                0, 
+                spriteSize, 
+                spriteSize, 
+                0, 
+                0, 
+                spriteSize * this.scale, 
+                spriteSize * this.scale)
             // this.canvasRenderer.context.drawImage(
             //     this.texture,
             //     0,
