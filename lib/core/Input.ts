@@ -1,4 +1,4 @@
-export default class Input {
+export class Input {
 
     /** The value will be in the range -1...1 for keyboard and joystick input devices. */
     axis = {

@@ -2,7 +2,7 @@ import { implementsRender, implementsUpdate } from "./interface/scene_hooks"
 import { CanvasRenderer } from "./core/canvas_renderer"
 import { SceneManager } from "./core/scene_manager"
 import services from "./core/service_locator"
-import Input from "./core/input"
+import {Input} from "./core/input"
 import Time from "./core/time"
 
 export abstract class GameCanvas extends HTMLCanvasElement {
@@ -69,7 +69,7 @@ export abstract class GameCanvas extends HTMLCanvasElement {
         this.input.resetKeyPressedEvents()
        
         // notice the use of an arrow function here so that "this" does not get lost upon the next frame
-        window.requestAnimationFrame(() => this.#loop())
+        window.requestAnimationFrame((time) => this.#loop(time))
     }
 
     init() {
