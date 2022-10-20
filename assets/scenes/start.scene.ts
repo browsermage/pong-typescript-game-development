@@ -1,5 +1,5 @@
 import services from "../../lib/core/service_locator"
-import { Scene } from "../../lib/core/scene"
+import { Scene } from "./../../lib/core/scene"
 import { Input } from "../../lib/core/input"
 import { SceneManager } from "../../lib/core/scene_manager"
 import { printf } from "../../lib/core/draw"
