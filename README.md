@@ -3,7 +3,7 @@ Hi there, I'm Björn Hjorth 👋
 I like combining the web and game development, if you like what you see please do not be a stranger and say "Hi" on Twitter [@colorsofcode](https://twitter.com/colorsofcode)
 
 
-<a href="https://stackblitz.com/edit/pong-typescript-game-development?file=index.html">Edit Demo on StackBlitz⚡️</a>
+<a href="https://stackblitz.com/~/github.com/colorsofcode/pong-typescript-game-development">Edit Demo on StackBlitz⚡️</a>
 ·
 <a href="https://github.com/colorsofcode/pong-typescript-game-development/issues">Report Bug</a>
 
