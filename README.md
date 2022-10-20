@@ -8,7 +8,7 @@ I like combining the web and game development, if you like what you see please d
 <a href="https://github.com/colorsofcode/pong-typescript-game-development/issues">Report Bug</a>
 
 <div align="center">
-   <!-- <img src="./art/range-demo.gif" width="640" height="360"> -->
+   <img src="./art/pong-playing.gif" width="640" height="360">
 </div>
 
 <!-- ABOUT -->
