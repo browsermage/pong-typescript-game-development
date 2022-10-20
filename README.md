@@ -14,7 +14,11 @@ I like combining the web and game development, if you like what you see please d
 <!-- ABOUT -->
 ## About The Project
 
-bla bla pong ping
+First I want to thank Warren for letting me use the pixel art for this demo, thank you kindly 💝 please check out more of the fantastic pixel art at Warrens Twitter [@WoostarsPixels](https://twitter.com/WoostarsPixels)
+
+This project is filled with some excellent coding practices and some not so great 😅
+
+For more examples of patterns and extraordinary approaches in game programming please take a look at the book [Game programming patterns](https://gameprogrammingpatterns.com/)
 
 <!-- PREREQUISITES -->
 ## Prerequisites

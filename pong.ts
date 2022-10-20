@@ -12,7 +12,7 @@ export class PongGame extends GameCanvas {
     start() {  
         this.sceneManager.addScene("play", PlayScene)
         this.sceneManager.addScene("start", StartScene)
-        this.sceneManager.changeScene("play")  
+        this.sceneManager.changeScene("start")  
     }
 
     render() {}
