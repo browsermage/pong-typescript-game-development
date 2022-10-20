@@ -60,3 +60,6 @@ The pixel art spritesheet is distributed under the
 
 <!-- ACKKNOWLEDGE -->
 ## Acknowledgments
+
+[@WoostarsPixels](https://twitter.com/WoostarsPixels)
+[Game programming patterns](https://gameprogrammingpatterns.com/)
