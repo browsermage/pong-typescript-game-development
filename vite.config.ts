@@ -1,6 +1,10 @@
+
 module.exports = {
     root: '.',
     build: {
-      outDir: './build'
-    }
+      outDir: './build',
+      emptyOutDir: false,
+    },
+    base: '',
+    
 }
