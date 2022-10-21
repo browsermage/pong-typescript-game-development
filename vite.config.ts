@@ -2,8 +2,7 @@
 module.exports = {
     root: '.',
     build: {
-      outDir: './build',
-      emptyOutDir: false,
+      outDir: './build'
     },
     base: '',
     

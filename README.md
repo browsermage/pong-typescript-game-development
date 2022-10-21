@@ -3,7 +3,7 @@ Hi there, I'm Björn Hjorth 👋
 I like combining the web and game development, if you like what you see please do not be a stranger and say "Hi" on Twitter [@colorsofcode](https://twitter.com/colorsofcode)
 
 
-<a href="https://stackblitz.com/~/github.com/colorsofcode/pong-typescript-game-development">Edit Demo on StackBlitz⚡️</a>
+<a href="https://colorsofcode.github.io/pong-typescript-game-development/">Try live demo⚡️</a>
 ·
 <a href="https://github.com/colorsofcode/pong-typescript-game-development/issues">Report Bug</a>
 
@@ -50,8 +50,6 @@ For more examples of patterns and extraordinary approaches in game programming p
 
 Björn Hjorth - [@colorsofcode](https://twitter.com/colorsofcode)
 
-Homepage: [https://colorsofcode.com](https://colorsofcode.com)
-
 <!-- LICENSE -->
 ## License
 
@@ -62,4 +60,5 @@ The pixel art spritesheet is distributed under the
 ## Acknowledgments
 
 [@WoostarsPixels](https://twitter.com/WoostarsPixels)
+
 [Game programming patterns](https://gameprogrammingpatterns.com/)
