@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Typescript Demo | Colors of code</title>
+    
+  <script type="module" crossorigin src="/assets/index.28465a5b.js"></script>
+  <link rel="stylesheet" href="/assets/index.1890bbff.css">
+</head>
+<body>
+    
+    <style>
+        @font-face {
+            font-family: "Pong Font";
+            src: url("/assets/retro_font.11d73798.ttf") format("truetype");
+        }
+
+        body {
+            font-family: "Pong Font";
+            background: #1071bc;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAcSURBVHgB7cAxAQAACAIwotq/BIbg3dL2AgC7B0iZA14qbWJmAAAAAElFTkSuQmCC);
+            display: flex;
+            align-items: center;    
+            color: white;
+            flex-direction: column;
+            
+            
+        }
+        a {
+            color: white;
+        }
+        img {
+            image-rendering: pixelated;
+        }
+        canvas {
+            position: absolute;
+            top: 142px;
+            left: 136px;
+        }
+        .game-demo {
+            position: relative;
+        }
+        .footer {
+            opacity: 0.7;
+            text-align: center;
+        }
+        .binary {
+            font-size: 0.6rem;
+        }
+        .binary::selection {
+            color: black;
+            background: white;
+        }
+    </style>
+
+    <div class="game-demo">
+        <!-- Animate sprite -->
+        <div class="computer">
+            <audio data-audio="game-start">
+                <source src="/assets/game-start.e081139d.mp3" type="audio/mp3" />
+            </audio>
+            <audio data-audio="paddle-hit">
+                <source src="/assets/paddle_hit.dec0263e.wav" type="audio/wav" />
+            </audio>
+            <audio data-audio="wall-hit">
+                <source src="data:audio/wav;base64,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CRqaFmISVBB6ETMTYRMkEiMRCRGjEbsRuRCaD0MP5w9LELUPxQ4ZDiYOoQ6VDq8Nzwy/DNsM3gyHDNwLaQtKC3ULSguvCjcKUgoCCtYJdgkfCdsIcwgiCOcHfQcxBzsH5AaXBv4FWwVxA84AHf4y/NP7jvza/Wv+c/5E/n3+6/5T/6n/kv+c/+7/aACcAO0AFwEOAfoA4gC8AOcA5gDxAPoA9gDeANkAFwHnAEIBXQH+APoABwELAQIBAgHQABsBJwHrAAMB/gAHAR4BCwH5AP4A/QDqAOoA5QDEAMgA7gAsAR8B/QCwAMQA1gDIANwAxADuANEAtADIANoA3AC+ALoA3wDVAKEAuQDyAMIA8gAPAa4AqgCuAJcAtADGALQAlwDIANAAqQDCALgA7QDxAL0AxgCkALgApQDKAKAA2AANAaAAEwH6ABIB+gDOABIBygDiAPUAIAH6AOoAFgHSAPkA/QAbAdwA4QDYAOEA0gDvAOUA9wD3APcA3wDlAKEAwACxAH0A3ADSAM0A0gABAdYACwEGAQUB3gCcALUAzADcAO4A/QDQANYAtADaANUAsADGANoAoADeAMEAtAC0AMYAqQCTAJEAnQDVAMIA6QCqAIQArgADAQUB7QADAeYAvADUAOIA1ACgAN4A4wDUAOIArgDAAOEA+QDiAM4A5gDdAPYAFwEWAecAlQDAANAA3QDJAOIA2ACZAJEAfQCVALUA3QD1ANgA6wD+ALUAzQDFALEAqAB8ALoAvACZAMQArQC+ALEAyQCqAM4A8wDyANwA4QDEANwA6gDOAM0AGAGYAKwACwGhALoAiQDNAL4AmAC+AKcAnQCoAKwAoQBxAIUAiQChAMIAvgC1AJgAmAB3ANAAuQC4AKEAqgCYAGwAdQBjAKEAewCYAIgAiQCJAFoAnAChAIkAhACJAIQAnAC0AL4AoQC0AIsAbAC9AI0AcQBwAIUAfwBiAHUANwBsAJMAcQCcAGwAjQBYAEAAzAB5AHAAZwBcAIgAeQCJAN4AqQDGAJcAewDVAJsApQCtAMoAjABPAHQAjQCgAIwAkQCVAKkAfQCbAMYA1ACbAJUAagBXAKAArgCNAJcAYgB5AHsAeABnAIMAgwCyANkAoADFAHkAiACQAH0AeQCHAGcAVwCHAHQAZAB0AKQAiwCBANIArQB4AIEAbgCHAGYAHgBcAJAAfACMAKQAbwBXAFcAcwBIAGoAZgBrAFcAYAB4AFcAYABOAMAAYAA6AKQAeQBgAJkAhwB4AJkASABgAIMAwACMAKwAgQCDAHgAfACBAEoAUgBqAJkAqACQAHgAcwCYAJkAqACQAHMAbgB9AEMAxACFAG8AlACQAIUAgQCAAJ0AZgBzAIUAnQCFAEwAPgBQAHwAkwCnAG4AfACVAKEAwgCsAKMApwCwAKwAsQBuAGoAfACFAGMANQBWADoAQwBkAIQAiwCAAGMAbgBHAGwAUAB/AGAAbgBLAIkASwA4AD4AJgBQAHEAiQBUAGMAUAA4ADUAQgAzAF8AZABxAEIAOgBQAFYARwB8AHEAbAB1AEwAYwBQAF8AXwCAALkAmABGADUAbgAmAFoAXwB7AJMAcQCYAGQAiQB3AGwAjwBLAGgAiQBoAF8AjwBUAFYARwBUACoAZwBHADwAjQCcAIkAWgBsAGcAYwCXAF4AdQCJAIgAmAB/AHUAawCpAHQAeQBwAGcAiQBYAGIAdABcAGcAMgAWAEsAZwBjAFgAQgBcAEYAQABrAGIALQDm//X/2f/V/3NtcGw8AAAAAAAAAAAAAACTWAAAPAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAA" type="audio/wav" />
+            </audio>
+            <audio data-audio="win-sound">
+                <source src="/assets/win_sound.a99ea44a.wav" type="audio/wav" />
+            </audio>
+            <img class="sprite" src="/assets/robot.sprite.797fc17e.png" alt="Computer spritesheet" >
+        </div>
+        <!-- Pong game -->
+        <canvas is="pong-game"></canvas>
+    </div>
+
+    <p>
+        Press Space to start (⚠️ will play sound). Use W and S to move the paddle
+    </p>
+    <footer class="footer">
+        <p>MIT License Copyright (C) 2022 Colors of code. 
+            <a href="https://github.com/colorsofcode/pong-typescript-game-development" target="_blank" title="Pong Typescript Github repository">Github</a> 
+            . 
+            <a href="https://twitter.com/colorsofcode" target="_blank" title="Twitter account of Colors of code">Twitter</a>
+        </p>
+        <p>Pixelart is Copyright (C) 2022 Woostar. 
+            
+            <a href="https://twitter.com/WoostarsPixels" target="_blank" title="Twitter account of Woostar">Twitter</a>
+        </p>
+        <p class="binary">
+            01110010 01100101 01101101 01100101 01101101 01100010 01100101 01110010 00100000 01110100 01101111 <br>
+            00100000 01101100 01101111 01110110 01100101 00001101 00001010 00001101 00001010 00001101 00001010
+        </p>
+    </footer>
+
+</body>
