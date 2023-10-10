@@ -1,11 +1,11 @@
 Hi there, I'm Björn Hjorth 👋
 
-I like combining the web and game development, if you like what you see please do not be a stranger and say "Hi" on Twitter [@colorsofcode](https://twitter.com/colorsofcode)
+I like combining the web and game development, if you like what you see please do not be a stranger and say "Hi" on Twitter [@browsermage](https://twitter.com/browsermage)
 
 
-<a href="https://colorsofcode.github.io/pong-typescript-game-development/">Try live demo⚡️</a>
+<a href="https://browsermage.github.io/pong-typescript-game-development/">Try live demo⚡️</a>
 ·
-<a href="https://github.com/colorsofcode/pong-typescript-game-development/issues">Report Bug</a>
+<a href="https://github.com/browsermage/pong-typescript-game-development/issues">Report Bug</a>
 
 <div align="center">
    <img src="./art/pong-playing.gif" width="640" height="360">
@@ -31,7 +31,7 @@ For more examples of patterns and extraordinary approaches in game programming p
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/colorsofcode/pong-typescript-game-development.git
+   git clone https://github.com/browsermage/pong-typescript-game-development.git
    ```
 2. Move to the new directory
     ```sh
@@ -48,7 +48,7 @@ For more examples of patterns and extraordinary approaches in game programming p
 <!-- CONTACT -->
 ## Contact
 
-Björn Hjorth - [@colorsofcode](https://twitter.com/colorsofcode)
+Björn Hjorth - [@colorsofcode](https://twitter.com/browsermage)
 
 <!-- LICENSE -->
 ## License
